@@ -14,9 +14,13 @@ const layout = require('./views/layout')
 
 
 app.get('/', (req, res) => {
-  res.send(layout("Helloooooo!!"))
+  res.redirect('/wiki')
 })
 
+const wikiRouter = require('./routes/wiki')
+const userRouter = require('./routes/user')
 
+app.use('/wiki', wikiRouter)
+app.use('/users', userRouter)
 
 module.exports = app
